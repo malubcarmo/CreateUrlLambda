@@ -32,6 +32,5 @@ public class Main implements RequestHandler<Map<String, Object>, Map<String, Str
         response.put("code", shortUrlCode);
 
         return response;
-        //coment
     }
 }

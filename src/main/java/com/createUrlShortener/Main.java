@@ -9,7 +9,7 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.services.s3.S3Client;
-import software.amazon.awssdk.services.s3.model.PutObjectAclRequest;
+import software.amazon.awssdk.services.s3.model.PutObjectRequest;
 
 public class Main implements RequestHandler<Map<String, Object>, Map<String, String>> {
 
@@ -39,7 +39,7 @@ public class Main implements RequestHandler<Map<String, Object>, Map<String, Str
         try {
             String urlDataJson = objectMapper.writeValueAsString(urlData);
 
-            PutObjectAclRequest request = PutObjectAclRequest.builder()
+            PutObjectRequest request = PutObjectRequest.builder()
                     .bucket("url-shortener-storage-malu")
                     .key(shortUrlCode + ".json")
                     .build();
